@@ -223,7 +223,7 @@ sched_pin(int cpu)
 		int	bit = i % (8 * sizeof(unsigned long));
 		if (cpumask[word] & (1 << bit)) {
 			if (j >= cpu) {
-				mask[word] |= (1 << bit);
+				mask[word] |= ((unsigned long)1 << bit);
 				break;
 			}
 			j++;
